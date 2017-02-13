@@ -55,6 +55,13 @@
          on how to target different products -->
     <depends>com.intellij.modules.lang</depends>
 
+    <application-components>
+        <component>
+            <interface-class>io.protostuff.jetbrains.plugin.resources.BundledResourceProvider</interface-class>
+            <implementation-class>io.protostuff.jetbrains.plugin.resources.BundledResourceProviderImpl</implementation-class>
+        </component>
+    </application-components>
+
     <project-components>
         <component>
             <implementation-class>io.protostuff.jetbrains.plugin.ProtostuffPluginController</implementation-class>
