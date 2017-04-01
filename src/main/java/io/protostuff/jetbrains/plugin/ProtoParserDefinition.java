@@ -229,13 +229,14 @@ public class ProtoParserDefinition implements ParserDefinition {
         register(ProtoParser.RULE_rpcMethod, RpcMethodNode::new);
         register(ProtoParser.RULE_optionEntry, OptionEntryNode::new);
         register(ProtoParser.RULE_option, OptionNode::new);
+        register(ProtoParser.RULE_optionName, OptionNameNode::new);
+        register(ProtoParser.RULE_optionValue, OptionValueNode::new);
         register(ProtoParser.RULE_oneof, OneOfNode::new);
         register(ProtoParser.RULE_oneofField, OneofFieldNode::new);
         register(ProtoParser.RULE_extendBlock, ExtendNode::new);
         register(ProtoParser.RULE_extensions, ExtensionsNode::new);
         register(ProtoParser.RULE_map, MapNode::new);
         register(ProtoParser.RULE_mapKey, MapKeyNode::new);
-        register(ProtoParser.RULE_optionValue, OptionValueNode::new);
         register(ProtoParser.RULE_range, RangeNode::new);
         register(ProtoParser.RULE_reservedFieldRanges, ReservedFieldRangesNode::new);
         register(ProtoParser.RULE_reservedFieldNames, ReservedFieldNamesNode::new);

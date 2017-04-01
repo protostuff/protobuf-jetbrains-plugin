@@ -63,4 +63,8 @@ public class FieldNode extends IdentifierDefSubtree implements KeywordsContainer
         return node.findChildByType(R_TAG);
     }
 
+    @Override
+    public String toString() {
+        return "FieldNode(" + getFieldName() + "=" + getTag() + ")";
+    }
 }
