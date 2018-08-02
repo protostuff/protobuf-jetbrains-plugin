@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package reference.options;
+
+message A {
+    int32 x = 1[<caret>json_name = "foo"];
+}

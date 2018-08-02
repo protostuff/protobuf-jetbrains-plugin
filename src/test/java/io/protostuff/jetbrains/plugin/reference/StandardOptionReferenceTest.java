@@ -29,6 +29,11 @@ public class StandardOptionReferenceTest extends LightCodeInsightFixtureTestCase
                 "StandardFieldOptionReferenceTestData.proto");
     }
 
+    public void testStandardFieldOptionJsonNameReference() {
+        checkReferenceToField(".google.protobuf.FieldOptions", "json_name",
+                "StandardFieldOptionJsonNameReferenceTestData.proto");
+    }
+
     public void testStandardMapFieldOptionReference() {
         checkReferenceToField(".google.protobuf.FieldOptions", "deprecated",
                 "StandardMapFieldOptionReferenceTestData.proto");
