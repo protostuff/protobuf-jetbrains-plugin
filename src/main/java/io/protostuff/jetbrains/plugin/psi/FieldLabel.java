@@ -10,7 +10,8 @@ import java.util.Optional;
 public enum FieldLabel {
     OPTIONAL("optional"),
     REQUIRED("required"),
-    REPEATED("repeated");
+    REPEATED("repeated"),
+    JSON_NAME("json_name");
 
     private final String name;
 
