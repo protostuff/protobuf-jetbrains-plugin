@@ -587,6 +587,11 @@ message FieldOptions {
   // For Google-internal migration only. Do not use.
   optional bool weak = 10 [default=false];
 
+  // JSON name of this field. The value is set by protocol compiler. If the
+  // user has set a "json_name" option on this field, that option's value
+  // will be used. Otherwise, it's deduced from the field's name by converting
+  // it to camelCase.
+  optional string json_name = 11;
 
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
