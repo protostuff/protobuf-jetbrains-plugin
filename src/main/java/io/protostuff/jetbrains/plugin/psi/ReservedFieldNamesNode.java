@@ -1,12 +1,11 @@
 package io.protostuff.jetbrains.plugin.psi;
 
 import static io.protostuff.compiler.parser.ProtoParser.RULE_reservedFieldName;
-import static io.protostuff.compiler.parser.Util.removeFirstAndLastChar;
+import static io.protostuff.compiler.parser.Util.trimStringName;
 import static io.protostuff.jetbrains.plugin.ProtoParserDefinition.rule;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
-import io.protostuff.compiler.parser.ProtoParser;
 import java.util.ArrayList;
 import java.util.List;
 import org.antlr.jetbrains.adapter.psi.AntlrPsiNode;
@@ -41,7 +40,7 @@ public class ReservedFieldNamesNode extends AntlrPsiNode
         List<PsiElement> nodes = findChildrenByType(rule(RULE_reservedFieldName));
         List<String> result = new ArrayList<>();
         for (PsiElement node : nodes) {
-            String s = removeFirstAndLastChar(node.getText());
+            String s = trimStringName(node.getText());
             result.add(s);
         }
         return result;

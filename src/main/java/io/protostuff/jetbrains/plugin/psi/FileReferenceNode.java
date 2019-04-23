@@ -112,7 +112,7 @@ public class FileReferenceNode extends AntlrPsiNode {
                 || !text.endsWith("\"")) {
             return null;
         }
-        return Util.removeFirstAndLastChar(text);
+        return Util.trimStringName(text);
     }
 
 }

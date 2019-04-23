@@ -1,6 +1,6 @@
 package io.protostuff.jetbrains.plugin.psi;
 
-import static io.protostuff.compiler.parser.Util.removeFirstAndLastChar;
+import static io.protostuff.compiler.parser.Util.trimStringName;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
@@ -27,9 +27,10 @@ public class SyntaxStatement extends AntlrPsiNode implements KeywordsContainer {
         if (syntaxNameNode != null) {
             String text = syntaxNameNode.getText();
             if (text.length() > 2
-                    && (text.startsWith("\"") && text.endsWith("\""))
-                    || (text.startsWith("'") && text.endsWith("'"))) {
-                String value = removeFirstAndLastChar(text);
+                    && ((text.startsWith("\"") && text.endsWith("\""))
+                        || (text.startsWith("'") && text.endsWith("'"))
+                        || (text.startsWith("`") && text.endsWith("`")))) {
+                String value = trimStringName(text);
                 return value;
             }
             return text;

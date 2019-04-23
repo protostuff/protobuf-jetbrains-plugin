@@ -46,6 +46,7 @@ import static io.protostuff.compiler.parser.ProtoParser.RULE_standardFieldRerefe
 import static io.protostuff.compiler.parser.ProtoParser.RULE_syntaxStatement;
 import static io.protostuff.compiler.parser.ProtoParser.RULE_tag;
 import static io.protostuff.compiler.parser.ProtoParser.RULE_typeReference;
+import static io.protostuff.compiler.parser.ProtoParser.STRING_NAME;
 import static io.protostuff.compiler.parser.ProtoParser.ruleNames;
 
 import com.intellij.lang.ASTNode;
@@ -223,6 +224,7 @@ public class ProtoParserDefinition implements ParserDefinition {
             ProtoLexer.PLUGIN_DEV_MARKER
     );
     public static final TokenSet LITERAL_TOKEN_SET = ELEMENT_FACTORY.createTokenSet(
+            ProtoLexer.STRING_NAME,
             ProtoLexer.STRING_VALUE,
             ProtoLexer.FLOAT_VALUE,
             ProtoLexer.INTEGER_VALUE,
@@ -311,7 +313,7 @@ public class ProtoParserDefinition implements ParserDefinition {
     private static final IFileElementType FILE = new IFileElementType(ProtoLanguage.INSTANCE);
     private static final TokenSet COMMENTS = ELEMENT_FACTORY
             .createTokenSet(COMMENT, LINE_COMMENT, PLUGIN_DEV_MARKER);
-    private static final TokenSet STRING = ELEMENT_FACTORY.createTokenSet(STRING_VALUE);
+    private static final TokenSet STRING = ELEMENT_FACTORY.createTokenSet(STRING_NAME, STRING_VALUE);
     private final Map<Integer, Function<ASTNode, PsiElement>> elementFactories = new HashMap<>();
 
     private final Map<String, Method> parserRuleMethods = createParserRuleMethods();

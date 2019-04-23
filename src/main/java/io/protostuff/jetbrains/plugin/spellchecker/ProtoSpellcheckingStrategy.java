@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ProtoSpellcheckingStrategy extends SpellcheckingStrategy {
 
+    private static final TokenIElementType STRING_NAME_TOKEN = ProtoParserDefinition.token(ProtoLexer.STRING_NAME);
     private static final TokenIElementType STRING_VALUE_TOKEN = ProtoParserDefinition.token(ProtoLexer.STRING_VALUE);
     private static final Tokenizer<PsiElement> STRING_VALUE_TOKENIZER = new Tokenizer<PsiElement>() {
         @Override
@@ -30,7 +31,8 @@ public class ProtoSpellcheckingStrategy extends SpellcheckingStrategy {
     @Override
     public Tokenizer getTokenizer(PsiElement element) {
         ASTNode node = element.getNode();
-        if (node != null && node.getElementType() == STRING_VALUE_TOKEN) {
+        if (node != null && (node.getElementType() == STRING_NAME_TOKEN
+                             || node.getElementType() == STRING_VALUE_TOKEN)) {
             return STRING_VALUE_TOKENIZER;
         }
         return super.getTokenizer(element);

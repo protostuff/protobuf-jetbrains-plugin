@@ -18,7 +18,8 @@ import org.jetbrains.annotations.Nullable;
 public class ProtoColorSettingsPage implements ColorSettingsPage {
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
             new AttributesDescriptor("Keyword", ProtoSyntaxHighlighter.KEYWORD),
-            new AttributesDescriptor("String", ProtoSyntaxHighlighter.STRING),
+            new AttributesDescriptor("String name", ProtoSyntaxHighlighter.STRING_NAME),
+            new AttributesDescriptor("String value", ProtoSyntaxHighlighter.STRING_VALUE),
             new AttributesDescriptor("Number", ProtoSyntaxHighlighter.NUMBER),
             new AttributesDescriptor("Line comment", ProtoSyntaxHighlighter.LINE_COMMENT),
             new AttributesDescriptor("Block comment", ProtoSyntaxHighlighter.BLOCK_COMMENT),
@@ -59,6 +60,8 @@ public class ProtoColorSettingsPage implements ColorSettingsPage {
     @Override
     public String getDemoText() {
         return Joiner.on('\n').join(
+                "syntax = \"proto3\";\n",
+                "",
                 "/* block comment */",
                 "<keyword>message</keyword> Foo {",
                 "   // line comment",

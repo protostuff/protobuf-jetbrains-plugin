@@ -33,7 +33,7 @@ dependencies {
         exclude group: 'org.slf4j'
     }
     compile 'com.google.guava:guava:21.0'
-    compile ('io.protostuff:protostuff-parser:2.2.26') {
+    compile ('io.protostuff:protostuff-parser:0-SNAPSHOT') {
         exclude group: 'org.slf4j'
     }
     compile ('io.sentry:sentry:1.7.5') {

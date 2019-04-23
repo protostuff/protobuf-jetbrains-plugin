@@ -37,8 +37,10 @@ public class ProtoSyntaxHighlighter extends SyntaxHighlighterBase {
 
     static final TextAttributesKey KEYWORD =
             createTextAttributesKey("PROTO_KEYWORD", DefaultLanguageHighlighterColors.KEYWORD);
-    static final TextAttributesKey STRING =
-            createTextAttributesKey("PROTO_STRING", DefaultLanguageHighlighterColors.STRING);
+    static final TextAttributesKey STRING_NAME =
+            createTextAttributesKey("PROTO_STRING_NAME", DefaultLanguageHighlighterColors.STRING);
+    static final TextAttributesKey STRING_VALUE =
+            createTextAttributesKey("PROTO_STRING_VALUE", DefaultLanguageHighlighterColors.STRING);
     static final TextAttributesKey NUMBER =
             createTextAttributesKey("PROTO_NUMBER", DefaultLanguageHighlighterColors.NUMBER);
     static final TextAttributesKey LINE_COMMENT =
@@ -73,8 +75,11 @@ public class ProtoSyntaxHighlighter extends SyntaxHighlighterBase {
             case ProtoLexer.FLOAT_VALUE:
                 attrKey = NUMBER;
                 break;
+            case ProtoLexer.STRING_NAME:
+                attrKey = STRING_NAME;
+                break;
             case ProtoLexer.STRING_VALUE:
-                attrKey = STRING;
+                attrKey = STRING_VALUE;
                 break;
             case ProtoLexer.COMMENT:
                 attrKey = BLOCK_COMMENT;
